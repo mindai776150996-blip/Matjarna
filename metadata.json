@@ -1,0 +1,5 @@
+{
+  "name": "6 متجرنا",
+  "description": "A modern, dynamic e-commerce store UI that loads products and categories from a live Google Sheet API endpoint. It features a premium design, dynamic filtering, and currency switching.",
+  "requestFramePermissions": []
+}

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>متجرنا</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            slate: {
+              50: '#f8fafc',
+              100: '#f1f5f9',
+              200: '#e2e8f0',
+              300: '#cbd5e1',
+              400: '#94a3b8',
+              500: '#64748b',
+              600: '#475569',
+              700: '#334152',
+              800: '#1e293b',
+              900: '#0f172a',
+            },
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* Set Arabic font 'Cairo' as the default for the entire application */
+    body {
+      font-family: 'Cairo', Tahoma, sans-serif;
+    }
+    /* Added for View Transitions API theme toggle animation */
+    ::view-transition-old(root),
+    ::view-transition-new(root) {
+      animation: none;
+      mix-blend-mode: normal;
+    }
+
+    /* Keyframes for simple fade-in animation */
+    @keyframes fade-in {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+    .animate-fade-in {
+      animation: fade-in 0.4s ease-out forwards;
+      opacity: 0; /* Start transparent */
+    }
+
+    /* Keyframes for product entrance animation */
+    @keyframes fade-in-up {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .animate-fade-in-up {
+      animation: fade-in-up 0.5s ease-out forwards;
+      opacity: 0; /* Start transparent */
+    }
+
+    /* Keyframes for side menu */
+    @keyframes slide-in-rtl {
+      from { transform: translateX(100%); }
+      to { transform: translateX(0); }
+    }
+    .animate-slide-in-rtl {
+      animation: slide-in-rtl 0.3s ease-out forwards;
+    }
+
+    @keyframes slide-in-ltr {
+      from { transform: translateX(-100%); }
+      to { transform: translateX(0); }
+    }
+    .animate-slide-in-ltr {
+      animation: slide-in-ltr 0.3s ease-out forwards;
+    }
+
+    /* Keyframes for side menu closing */
+    @keyframes slide-out-rtl {
+      from { transform: translateX(0); }
+      to { transform: translateX(100%); }
+    }
+    .animate-slide-out-rtl {
+      animation: slide-out-rtl 0.3s ease-in forwards;
+    }
+
+    @keyframes slide-out-ltr {
+      from { transform: translateX(0); }
+      to { transform: translateX(-100%); }
+    }
+    .animate-slide-out-ltr {
+      animation: slide-out-ltr 0.3s ease-in forwards;
+    }
+
+    /* Keyframes for fade-out animation */
+    @keyframes fade-out {
+      from { opacity: 1; }
+      to { opacity: 0; }
+    }
+    .animate-fade-out {
+      animation: fade-out 0.3s ease-out forwards;
+    }
+
+    /* Custom scrollbar for product description */
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 8px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background-color: #d1d5db; /* gray-300 */
+      border-radius: 20px;
+      border: 2px solid transparent;
+      background-clip: content-box;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+      background-color: #9ca3af; /* gray-400 */
+    }
+    .dark .custom-scrollbar::-webkit-scrollbar-thumb {
+      background-color: #475569; /* slate-600 */
+    }
+    .dark .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+      background-color: #64748b; /* slate-500 */
+    }
+  </style>
+<script type="importmap">
+{
+  "imports": {
+    "rxjs": "https://esm.sh/rxjs@^7.8.2?conditions=es2015",
+    "rxjs/operators": "https://esm.sh/rxjs@^7.8.2/operators?conditions=es2015",
+    "rxjs/ajax": "https://esm.sh/rxjs@^7.8.2/ajax?conditions=es2015",
+    "rxjs/webSocket": "https://esm.sh/rxjs@^7.8.2/webSocket?conditions=es2015",
+    "rxjs/testing": "https://esm.sh/rxjs@^7.8.2/testing?conditions=es2015",
+    "rxjs/fetch": "https://esm.sh/rxjs@^7.8.2/fetch?conditions=es2015",
+    "@angular/compiler": "https://esm.sh/@angular/compiler@^21.1.3?external=rxjs",
+    "@angular/platform-browser": "https://esm.sh/@angular/platform-browser@^21.1.3?external=rxjs",
+    "@angular/core": "https://esm.sh/@angular/core@^21.1.3?external=rxjs",
+    "@angular/common": "https://esm.sh/@angular/common@^21.1.3?external=rxjs",
+    "@angular/common/http": "https://esm.sh/@angular/common@^21.1.3/http?external=rxjs",
+    "@google/genai": "https://esm.sh/@google/genai?v=0.15.0",
+    "@angular/forms": "https://esm.sh/@angular/forms@^21.1.3?external=rxjs",
+    "@angular/common/": "https://esm.sh/@angular/common@^21.1.5/",
+    "rxjs/": "https://esm.sh/rxjs@^7.8.2/"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body class="bg-gray-100 dark:bg-slate-900">
+  <app-root></app-root>
+</body>
+</html>
